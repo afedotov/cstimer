@@ -265,7 +265,7 @@ var kernel = execMain(function() {
 				resetPropertyes();
 				generateDiv();
 				return false;
-			}], [BUTTON_EXPORT.replace('<br', ''), exportFunc.exportProperties]], 'option', BUTTON_OPTIONS.replace('-<br>', ''), function() {
+			}], [BUTTON_EXPORT.replace('-<br>', ''), exportFunc.exportProperties]], 'option', BUTTON_OPTIONS.replace('-<br>', ''), function() {
 				right.find('select[name="lang"]').focus().blur();
 				scrollToModule();
 			});
@@ -787,9 +787,9 @@ var kernel = execMain(function() {
 			regProp('ui', 'zoom', 1, ZOOM_LANG, ['1', ['0.7', '0.8', '0.9', '1', '1.1', '1.25', '1.5'], ['70%', '80%', '90%', '100%', '110%', '125%', '150%']]);
 			regProp('ui', 'font', 1, PROPERTY_FONT, ['lcd', ['r', 'Arial', 'lcd', 'lcd2', 'lcd3', 'lcd4', 'lcd5', 'Roboto'], PROPERTY_FONT_STR.split('|').concat('Roboto')]);
 			regProp('kernel', 'ahide', 0, PROPERTY_AHIDE, [true]);
-			regProp('ui', 'uidesign', 1, PROPERTY_UIDESIGN, ['n', ['n', 'mt', 'ns', 'mtns'], PROPERTY_UIDESIGN_STR.split('|')]);
+			regProp('ui', 'uidesign', 1, PROPERTY_UIDESIGN, ['mtns', ['n', 'mt', 'ns', 'mtns'], PROPERTY_UIDESIGN_STR.split('|')]);
 			regProp('ui', 'view', 1, PROPERTY_VIEW, ['a', ['a', 'm', 'd'], PROPERTY_VIEW_STR.split('|')]);
-			regProp('color', 'color', 1, PROPERTY_COLOR, ['1', ['u', 'e', 'r', '1', '2', '3', '4', '5', '6', '7', '8'], PROPERTY_COLOR_STR.split('|')]);
+			regProp('color', 'color', 1, PROPERTY_COLOR, ['4', ['u', 'e', 'r', '1', '2', '3', '4', '5', '6', '7', '8'], PROPERTY_COLOR_STR.split('|')]);
 			var parr = PROPERTY_COLORS.split('|');
 			regProp('color', 'col-font', 3, parr[0], ['#000000']);
 			regProp('color', 'col-back', 3, parr[1], ['#eeffcc']);
