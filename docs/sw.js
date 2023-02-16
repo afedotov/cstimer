@@ -1,6 +1,6 @@
 var urlsToCache = [
 	'.',
-	'timer.php',
+	'index.html',
 	'js/cstimer.js',
 	'js/twisty.js',
 	'js/jquery.min.js',
