@@ -657,6 +657,7 @@ var timer = execMain(function(regListener, regProp, getProp, pretty, ui, pushSig
 					lcd.color('#0d0');
 					break;
 				case GanTimerState.IDLE: // timer reset button pressed
+					inspectionTime = 0;
 					switch (status) {
 						case -1:         // if was idle start inspection timer
 							if (checkUseIns()) { // only when inspection enabled in settings
