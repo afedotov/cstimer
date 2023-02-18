@@ -1,6 +1,7 @@
 var urlsToCache = [
 	'.',
-	'timer.php',
+	'index.html',
+	'js/lang.js',
 	'js/cstimer.js',
 	'js/twisty.js',
 	'js/jquery.min.js',
@@ -51,4 +52,4 @@ self.addEventListener('activate', function(event) {
 	);
 });
 
-var CACHE_NAME = "cstimer_cache_2abcc8e4715eb6ee1a0edccfbe58730b";
+var CACHE_NAME = "cstimer_cache_e75feb8b7886d8c9287af3753271e622";

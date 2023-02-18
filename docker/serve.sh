@@ -7,8 +7,8 @@
 }
 
 echo
-echo "csTimer local HTTP URL: http://localhost:8080/"
-echo "csTimer local HTTPS URL: https://localhost:8443/"
+echo "csTimer local HTTP URL: http://localhost:8080/cstimer/"
+echo "csTimer local HTTPS URL: https://localhost:8443/cstimer/"
 echo
 
 docker run \
@@ -18,7 +18,7 @@ docker run \
     --rm \
     -p 8080:80 \
     -p 8443:443 \
-    -v "$PWD/dist:/var/www/html" \
+    -v "$PWD/dist:/var/www/html/cstimer" \
     -v "$PWD/docker:/mnt/docker" \
     php:apache \
     /mnt/docker/entrypoint-serve.sh

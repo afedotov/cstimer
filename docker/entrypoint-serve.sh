@@ -25,5 +25,5 @@ ln -s /mnt/docker/localhost-crt.pem /etc/ssl/certs/ssl-cert-snakeoil.pem
 ln -s /mnt/docker/localhost-key.pem /etc/ssl/private/ssl-cert-snakeoil.key
 
 # Start Apache HTTP server
-exec apache2-foreground -c 'ServerName localhost' -c 'DirectoryIndex timer.php'
+exec apache2-foreground -c 'ServerName localhost'
 
