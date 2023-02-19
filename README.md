@@ -8,7 +8,7 @@ on any static file hosting like GitHub Pages.
 
 # Updates
 
- - **2023.02.16** This version adds support for GAN Smart Timer using its Bluetooth protocol
+ - **v1.0.0-static** This version adds support for GAN Smart Timer using its Bluetooth protocol
 
 # Building and running csTimer locally
 
