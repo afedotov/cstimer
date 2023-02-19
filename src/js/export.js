@@ -32,9 +32,10 @@ var exportFunc = execMain(function() {
 				inFile.click();
 			})),
 			$('<td>').append(outFile)),
-		$('<tr>').append(
-			$('<td>').append(inServ),
-			$('<td>').append(outServ)),
+		// DISABLE_STATIC
+		// $('<tr>').append(
+		// 	$('<td>').append(inServ),
+		// 	$('<td>').append(outServ)),
 		$('<tr>').append(
 			$('<td colspan=2>').append($('<a class="click"/>').html(EXPORT_FROMOTHER).click(function() {
 				inOtherFile.click();
@@ -346,7 +347,7 @@ var exportFunc = execMain(function() {
 				outFile.attr('href', URL.createObjectURL(blob));
 				outFile.attr('download', 'cstimer_' + mathlib.time2str(new Date() / 1000, '%Y%M%D_%h%m%s') + '.txt');
 			}
-			kernel.showDialog([exportDiv, 0, undefined, 0, [EXPORT_ONLYOPT, exportProperties], [EXPORT_ACCOUNT, exportAccounts]], 'export', EXPORT_DATAEXPORT);
+			kernel.showDialog([exportDiv, 0, undefined, 0, [EXPORT_ONLYOPT, exportProperties] /*, DISABLE_STATIC [EXPORT_ACCOUNT, exportAccounts] */],  'export', EXPORT_DATAEXPORT);
 		});
 	}
 
@@ -560,16 +561,17 @@ var exportFunc = execMain(function() {
 
 		kernel.addButton('export', BUTTON_EXPORT, showExportDiv, 2);
 		exportDiv.append('<br>',
-			$('<div class="expOauth">').append(
-				$('<table id="wcaLogin">').append(wcaDataTr),
-				$('<table class="expUpDown">').append($('<tr>').append(
-					$('<td>').append(inServWCA),
-					$('<td>').append(outServWCA)))),
-			$('<div class="expOauth">').append(
-				$('<table id="gglLogin">').append(gglDataTr),
-				$('<table class="expUpDown">').append($('<tr>').append(
-					$('<td>').append(inServGGL),
-					$('<td>').append(outServGGL)))),
+			// DISABLE_STATIC
+			// $('<div class="expOauth">').append(
+			// 	$('<table id="wcaLogin">').append(wcaDataTr),
+			// 	$('<table class="expUpDown">').append($('<tr>').append(
+			// 		$('<td>').append(inServWCA),
+			// 		$('<td>').append(outServWCA)))),
+			// $('<div class="expOauth">').append(
+			// 	$('<table id="gglLogin">').append(gglDataTr),
+			// 	$('<table class="expUpDown">').append($('<tr>').append(
+			// 		$('<td>').append(inServGGL),
+			// 		$('<td>').append(outServGGL)))),
 			exportTable);
 		if (window.FileReader && window.Blob) {
 			var reader = new FileReader();
@@ -585,62 +587,63 @@ var exportFunc = execMain(function() {
 			inOtherFile.change(importFile.bind(inOtherFile[0], readerOther));
 		}
 
-		if ($.urlParam('code')) { //WCA oauth
-			wcaDataTd.html(EXPORT_LOGINAUTHED);
-			$.post('oauthwca.php', {
-				'code': $.urlParam('code')
-			}, function(val) {
-				if ('access_token' in val) {
-					localStorage['wcaData'] = JSON.stringify(val);
-					kernel.pushSignal('export', ['account', 'wcaData']);
-				} else {
-					alert(EXPORT_ERROR);
-					logoutFromWCA();
-				}
-			}, 'json').error(function() {
-				alert(EXPORT_ERROR);
-				logoutFromWCA();
-			}).always(function() {
-				updateUserInfoFromWCA();
-				$.clearUrl('code');
-			});
-			showExportDiv();
-		} else {
-			updateUserInfoFromWCA();
-		}
+		// DISABLE_STATIC
+		// if ($.urlParam('code')) { //WCA oauth
+		// 	wcaDataTd.html(EXPORT_LOGINAUTHED);
+		// 	$.post('oauthwca.php', {
+		// 		'code': $.urlParam('code')
+		// 	}, function(val) {
+		// 		if ('access_token' in val) {
+		// 			localStorage['wcaData'] = JSON.stringify(val);
+		// 			kernel.pushSignal('export', ['account', 'wcaData']);
+		// 		} else {
+		// 			alert(EXPORT_ERROR);
+		// 			logoutFromWCA();
+		// 		}
+		// 	}, 'json').error(function() {
+		// 		alert(EXPORT_ERROR);
+		// 		logoutFromWCA();
+		// 	}).always(function() {
+		// 		updateUserInfoFromWCA();
+		// 		$.clearUrl('code');
+		// 	});
+		// 	showExportDiv();
+		// } else {
+		// 	updateUserInfoFromWCA();
+		// }
 
-		if ($.hashParam('access_token')) { //Google oauth
-			var access_token = $.hashParam('access_token');
-			gglDataTd.html(EXPORT_LOGINAUTHED);
-			$.get('https://www.googleapis.com/drive/v3/about', {
-				'fields': 'user',
-				'access_token': access_token
-			}, function(val) {
-				if ('user' in val) {
-					localStorage['gglData'] = JSON.stringify({
-						'access_token': access_token,
-						'ggl_me': val['user']
-					});
-					kernel.pushSignal('export', ['account', 'gglData']);
-				} else {
-					alert(EXPORT_ERROR);
-					logoutFromGGL();
-				}
-			}, 'json').error(function(data, status, xhr) {
-				if (data.status == 401) {
-					alert('Timeout, Please Re-login');
-				} else {
-					alert(EXPORT_ERROR);
-				}
-				logoutFromGGL();
-			}).always(function() {
-				updateUserInfoFromGGL();
-				$.clearHash();
-			});
-			showExportDiv();
-		} else {
-			updateUserInfoFromGGL();
-		}
+		// if ($.hashParam('access_token')) { //Google oauth
+		// 	var access_token = $.hashParam('access_token');
+		// 	gglDataTd.html(EXPORT_LOGINAUTHED);
+		// 	$.get('https://www.googleapis.com/drive/v3/about', {
+		// 		'fields': 'user',
+		// 		'access_token': access_token
+		// 	}, function(val) {
+		// 		if ('user' in val) {
+		// 			localStorage['gglData'] = JSON.stringify({
+		// 				'access_token': access_token,
+		// 				'ggl_me': val['user']
+		// 			});
+		// 			kernel.pushSignal('export', ['account', 'gglData']);
+		// 		} else {
+		// 			alert(EXPORT_ERROR);
+		// 			logoutFromGGL();
+		// 		}
+		// 	}, 'json').error(function(data, status, xhr) {
+		// 		if (data.status == 401) {
+		// 			alert('Timeout, Please Re-login');
+		// 		} else {
+		// 			alert(EXPORT_ERROR);
+		// 		}
+		// 		logoutFromGGL();
+		// 	}).always(function() {
+		// 		updateUserInfoFromGGL();
+		// 		$.clearHash();
+		// 	});
+		// 	showExportDiv();
+		// } else {
+		// 	updateUserInfoFromGGL();
+		// }
 	});
 
 	return {

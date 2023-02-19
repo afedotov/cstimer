@@ -154,9 +154,7 @@ var scrdata = [
 		['3x3 mbld', "r3ni", 5]
 	]],
 	['Input', [
-		['Extern', "input", 0],
-		['Competition', "remoteComp", 0],
-		['Remote', "remoteOther", 0]
+		['Extern', "input", 0]
 	]],
 	['===WCA===', [
 		['--', "blank", 0]
@@ -374,9 +372,6 @@ var scrdata = [
 	]],
 	['1x1x1', [
 		['x y z', "111", 25]
-	]],
-	['-1x-1x-1', [
-		[' ', "-1", 25]
 	]],
 	['1x1x2', [
 		[' ', "112", 25]

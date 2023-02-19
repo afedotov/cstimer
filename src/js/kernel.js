@@ -58,6 +58,8 @@ var kernel = execMain(function() {
 		function resetPropertyes() {
 			for (var key in defaultProps) {
 				var newVal = defaultProps[key];
+				if (key.startsWith('col-'))
+					continue;
 				if (newVal !== undefined && getProp(key) !== newVal && !key.startsWith('session')) {
 					delete properties[key];
 					pushSignal('property', [key, newVal, 'reset']);

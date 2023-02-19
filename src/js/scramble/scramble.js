@@ -309,12 +309,13 @@ var scramble = execMain(function(rn, rndEl) {
 			inputScrambleGen.clear();
 		}
 
-		if (realType.startsWith('remote')) {
-			scramble = remoteScrambleGen.next(realType);
-			return;
-		} else {
-			remoteScrambleGen.clear();
-		}
+		// DISABLE_STATIC
+		// if (realType.startsWith('remote')) {
+		// 	scramble = remoteScrambleGen.next(realType);
+		// 	return;
+		// } else {
+		// 	remoteScrambleGen.clear();
+		// }
 
 		if (realType in scramblers) {
 			var cachedScr = JSON.parse(localStorage['cachedScr'] || null) || {};
