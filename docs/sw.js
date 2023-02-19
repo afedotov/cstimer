@@ -1,6 +1,7 @@
 var urlsToCache = [
 	'.',
 	'index.html',
+	'js/lang.js',
 	'js/cstimer.js',
 	'js/twisty.js',
 	'js/jquery.min.js',
@@ -51,4 +52,4 @@ self.addEventListener('activate', function(event) {
 	);
 });
 
-var CACHE_NAME = "cstimer_cache_2abcc8e4715eb6ee1a0edccfbe58730b";
+var CACHE_NAME = "cstimer_cache_92cd37bdefc03241a45bd399caf22d09";

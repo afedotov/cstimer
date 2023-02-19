@@ -1,5 +1,6 @@
 CACHE MANIFEST
 
+js/lang.js
 js/cstimer.js
 js/twisty.js
 js/jquery.min.js
@@ -10,4 +11,4 @@ NETWORK:
 
 FALLBACK:
 
-# MD5=2abcc8e4715eb6ee1a0edccfbe58730b
+# MD5=92cd37bdefc03241a45bd399caf22d09
