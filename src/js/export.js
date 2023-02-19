@@ -552,12 +552,13 @@ var exportFunc = execMain(function() {
 	}
 
 	$(function() {
-		kernel.regListener('export', 'time', newTimePushed);
-		kernel.regListener('export', 'property', procSignal, /^atexpa$/);
-		kernel.regListener('export', 'export', procSignal, /^account$/);
-		kernel.regProp('kernel', 'atexpa', 1, PROPERTY_AUTOEXP, ['n', ['n', 'f', 'id', 'wca'], PROPERTY_AUTOEXP_OPT.split('|')]);
-		kernel.regProp('kernel', 'atexpi', ~1, 'Auto Export Interval (Solves)', [100, [50, 100, 200, 500], ['50', '100', '200', '500']]);
-		kernel.regProp('kernel', 'expp', 0, PROPERTY_IMPPREV, [false]);
+		// DISABLE_STATIC
+		//kernel.regListener('export', 'time', newTimePushed);
+		//kernel.regListener('export', 'property', procSignal, /^atexpa$/);
+		//kernel.regListener('export', 'export', procSignal, /^account$/);
+		//kernel.regProp('kernel', 'atexpa', 1, PROPERTY_AUTOEXP, ['n', ['n', 'f', 'id', 'wca'], PROPERTY_AUTOEXP_OPT.split('|')]);
+		//kernel.regProp('kernel', 'atexpi', ~1, 'Auto Export Interval (Solves)', [100, [50, 100, 200, 500], ['50', '100', '200', '500']]);
+		//kernel.regProp('kernel', 'expp', 0, PROPERTY_IMPPREV, [false]);
 
 		kernel.addButton('export', BUTTON_EXPORT, showExportDiv, 2);
 		exportDiv.append('<br>',
